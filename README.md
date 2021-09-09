@@ -10,19 +10,19 @@ How to install and run Cuda aware MPI with Numba and send device (GPU) memory vi
    4. Hold F2 / Shift
    5. Turn on the computer
    6. In the bios menu click the drive
-   7. Start Linux. If it freezes press "e" on Ubuntu and add `nomodeset` at the end of `Linux` and press Ctrl+x to continue (link)[https://itsfoss.com/fix-ubuntu-freezing/]
+   7. Start Linux. If it freezes press "e" on Ubuntu and add `nomodeset` at the end of `Linux` and press Ctrl+x to continue [reference link](https://itsfoss.com/fix-ubuntu-freezing/)
 2. Install stuff
    1. sudo apt-get install make
    2. sudo apt-get install gcc g++
    3. sudo apt-get install python3.8
    4. sudo apt-get install pip
-3. Install cuda using the debian installer or runfile installer (link)[https://docs.nvidia.com/cuda/cuda-quick-start-guide/index.html#ubuntu-x86_64-deb]
+3. Install cuda using the debian installer or runfile installer [installation guide](https://docs.nvidia.com/cuda/cuda-quick-start-guide/index.html#ubuntu-x86_64-deb)
 4. Update path
    1. export PATH=/usr/local/cuda-11.4/bin${PATH:+:${PATH}}
    2. export LD_LIBRARY_PATH=/usr/local/cuda-11.4/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
    3. export CUDA_HOME=/usr/local/cuda-11.4
 4. Install Open MPI
-   1. (openmpi-4.1.1.tar.gz)[https://www.open-mpi.org/software/ompi/v4.1/]
+   1. [openmpi-4.1.1.tar.gz](https://www.open-mpi.org/software/ompi/v4.1/)
    2. tar -xzf openmpi-4.1.1.tar.gz
    3. cd openmpi-4.1.1
    4. ./configure --with-cuda=/usr/local/cuda-11.4
@@ -36,7 +36,7 @@ How to install and run Cuda aware MPI with Numba and send device (GPU) memory vi
    2. bash ./Anaconda3-2021.11-Linux-x86_64.sh
    3. You probably don't want to have anaconda be initialized at startup as this which set aliases for pip and python
 6. Install numba
-   1. Make sure CUDA_HOME is to the path that specifies the cuda that you build OpenMPI with (link)[https://numba.pydata.org/numba-doc/latest/cuda/overview.html#cudatoolkit-lookup] export CUDA_HOME= /usr/local/cuda-11.4
+   1. Make sure CUDA_HOME is to the path that specifies the cuda that you build OpenMPI with [numba cudatoolkit installation reference](https://numba.pydata.org/numba-doc/latest/cuda/overview.html#cudatoolkit-lookup) export CUDA_HOME= /usr/local/cuda-11.4
    2. conda install numba
    3. conda install cudatoolkit
 7. Run with cuda-aware MPI, you can send NDDeviceArrays over MPI! Device memory can be sent via MPI
