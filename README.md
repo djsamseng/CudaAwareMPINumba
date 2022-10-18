@@ -5,12 +5,18 @@ How to install and run Cuda aware MPI with Numba and send device (GPU) memory vi
 
 1. Install Ubuntu on usb [link](https://ubuntu.com/tutorials/create-a-usb-stick-on-windows#1-overview)
    1. Eject the usb once formatted
+   2. Use Disk Partition in Windows to free up space (> 100GB) for Ubuntu
    2. Turn off the computer
    3. Insert the USB stick
-   4. Hold F2 / Shift
-   5. Turn on the computer
-   6. In the bios menu click the drive
-   7. Start Linux. If it freezes press "e" on Ubuntu and add `nomodeset` at the end of `Linux` and press Ctrl+x to continue [reference link](https://itsfoss.com/fix-ubuntu-freezing/)
+   4. Repeatedly tap F2 to enter BIOS
+   5. In the BIOS go to the boot menu and select the USB stick
+   6. Select Ubuntu (Safe Graphics). The regular "Ubuntu" doesn't render the installation process with my RTX 3090 graphics card
+     1. Option B: Start Linux. If it freezes press "e" on Ubuntu and add `nomodeset` at the end of `Linux` and press Ctrl+x to continue [reference link](https://itsfoss.com/fix-ubuntu-freezing/)
+   7. Select Custom Installation type (Not "alongside Windows Boot Manager" because we manually partitioned space in step 2
+     1. Click the "free space" we made earlier
+     2. Click the + icon to create a partition
+     3. Mount point "/" since we'll use only one mount point for everything [Explanation](https://askubuntu.com/questions/21719/how-large-should-i-make-root-home-and-swap-partitions). Note the amount of space you are using
+     4. Scroll down and select the partition you just made (ex: "/dev/nvme0n1p5") which you can find by the amount of space you chose in the previous step
 2. Install stuff
    1. sudo apt-get install make
    2. sudo apt-get install gcc g++
